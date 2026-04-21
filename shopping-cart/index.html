@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .cart, .products { display: grid; gap: 15px; margin-bottom: 20px; }
+        .product, .cart-item { background: white; border-radius: 8px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .product { display: flex; align-items: center; gap: 15px; }
+        .product img { width: 60px; height: 60px; object-fit: cover; border-radius: 6px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; }
+        .controls { display: flex; gap: 8px; align-items: center; }
+        button { cursor: pointer; padding: 8px 12px; border: none; border-radius: 4px; background: #007bff; color: white; }
+        button:hover { background: #0056b3; }
+        button.danger { background: #dc3545; }
+        button.danger:hover { background: #c82333; }
+        .total { font-size: 1.3em; font-weight: bold; text-align: right; margin: 20px 0; }
+        .empty-msg { text-align: center; color: #666; padding: 20px; background: white; border-radius: 8px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <h1>🛒 Shopping Cart</h1>
+    
+    <div class="header">
+        <h2>Cart (<span id="cart-count">0</span> items)</h2>
+        <button id="clear-cart" class="danger">Clear Cart</button>
+    </div>
+    
+    <div id="cart" class="cart">
+        <p id="empty-cart-msg" class="empty-msg">Your cart is empty 🛒</p>
+    </div>
+    
+    <div class="total">Total: $<span id="cart-total">0.00</span></div>
+    
+    <h2>Products</h2>
+    <div id="products" class="products"></div>
+
+    <!-- Single script file -->
+    <script src="app.js"></script>
+</body>
+</html>

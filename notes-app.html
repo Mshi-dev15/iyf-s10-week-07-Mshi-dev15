@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notes App</title>
+</head>
+<body>
+
+  <h2>📝 My Notes</h2>
+
+  <input type="text" id="noteInput" placeholder="Write a note..." />
+<button onclick="addNote()">Save Note</button>
+
+  <div id="notesList"></div>
+
+  <script>
+    function saveToStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+function getFromStorage(key, defaultValue) {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : defaultValue;
+}
+
+function removeFromStorage(key) {
+  localStorage.removeItem(key);
+}
+let notes = getFromStorage("my_notes", []);
+function addNote() {
+  const input = document.getElementById("noteInput");
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  notes.push({ id: Date.now(), text: text });
+  saveToStorage("my_notes", notes);
+  input.value = "";
+  renderNotes();
+}
+function renderNotes() {
+  const list = document.getElementById("notesList");
+
+  if (notes.length === 0) {
+    list.innerHTML = "<p>No notes yet!</p>";
+    return;
+  }
+
+  list.innerHTML = notes.map(note => `
+    <p>${note.text} <button onclick="deleteNote(${note.id})">Delete</button></p>
+  `).join("");
+}
+function deleteNote(id) {
+  notes = notes.filter(n => n.id !== id);
+  saveToStorage("my_notes", notes);
+  renderNotes();
+}
+renderNotes();
+  </script>
+
+</body>
+</html>
