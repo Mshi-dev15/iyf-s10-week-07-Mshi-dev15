@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Searches</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background: white;
+            border-bottom: 1px solid #eee;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        li:first-child {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        li:last-child {
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-bottom: none;
+        }
+
+        li:hover {
+            background-color: #eef;
+            color: #007bff;
+        }
+
+        .empty-msg {
+            color: #888;
+            font-style: italic;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🔍 Recent Searches</h2>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Type and press Enter...">
+        <button id="search-btn">Search</button>
+    </div>
+
+    <h3>History (Last 5)</h3>
+    <ul id="history-list">
+        <!-- History items will appear here -->
+    </ul>
+    <p id="empty-msg" class="empty-msg">No recent searches.</p>
+
+    <script>
+        // day2.js
+
+const input = document.getElementById('search-input');
+const btn = document.getElementById('search-btn');
+const list = document.getElementById('history-list');
+const emptyMsg = document.getElementById('empty-msg');
+
+const STORAGE_KEY = 'recent_searches';
+
+// 1. Load history from localStorage
+let history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+// 2. Function to render the list
+function renderHistory() {
+    list.innerHTML = ''; // Clear current list
+
+    if (history.length === 0) {
+        emptyMsg.style.display = 'block';
+    } else {
+        emptyMsg.style.display = 'none';
+        
+        history.forEach(term => {
+            const li = document.createElement('li');
+            li.textContent = term;
+            
+            // Click history item to fill input
+            li.addEventListener('click', () => {
+                input.value = term;
+                input.focus();
+            });
+            
+            list.appendChild(li);
+        });
+    }
+}
+
+// 3. Function to add a new search
+function addSearch(term) {
+    // Remove duplicate if it already exists (optional but clean)
+    history = history.filter(item => item !== term);
+    
+    // Add to beginning of array
+    history.unshift(term);
+    
+    // Keep only last 5
+    if (history.length > 5) {
+        history.pop();
+    }
+    
+    // Save to storage
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+    
+    // Update UI
+    renderHistory();
+}
+
+// 4. Event Listeners
+btn.addEventListener('click', () => {
+    const term = input.value.trim();
+    if (term) {
+        addSearch(term);
+        input.value = ''; // Clear input
+    }
+});
+
+// Allow pressing "Enter" key
+input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        btn.click(); // Trigger the button click
+    }
+});
+
+// Initial Render
+renderHistory();
+    </script>
+</body>
+</html>

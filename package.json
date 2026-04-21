@@ -1,0 +1,30 @@
+{
+  "name": "iyf-s10-week-07-mshi-dev15",
+  "version": "1.0.0",
+  "description": "",
+  "main": "debug-practice.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint *.js",
+    "lint:fix": "eslint *.js --fix",
+    "format": "prettier --write *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mshi-dev15/iyf-s10-week-07-Mshi-dev15.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Mshi-dev15/iyf-s10-week-07-Mshi-dev15/issues"
+  },
+  "homepage": "https://github.com/Mshi-dev15/iyf-s10-week-07-Mshi-dev15#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
+    "prettier": "^3.8.3"
+  }
+}
