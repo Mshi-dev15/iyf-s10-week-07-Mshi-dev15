@@ -2,60 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Notes App</title>
+  <title>Simple Notes App</title>
+  <style>
+    body { font-family: sans-serif; max-width: 500px; margin: 2rem auto; padding: 0 1rem; }
+    .input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+    input { flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    button#addBtn { padding: 8px 15px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    button#addBtn:hover { background: #0056b3; }
+    
+    ul { list-style: none; padding: 0; }
+    li { 
+      background: #f9f9f9; 
+      border: 1px solid #ddd; 
+      padding: 10px; 
+      margin-bottom: 8px; 
+      border-radius: 4px; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+    .delete-btn { 
+      background: #dc3545; 
+      color: white; 
+      border: none; 
+      padding: 5px 10px; 
+      border-radius: 4px; 
+      cursor: pointer; 
+      font-size: 0.8em;
+    }
+    .empty-msg { color: #888; text-align: center; font-style: italic; }
+  </style>
 </head>
 <body>
 
   <h2>📝 My Notes</h2>
 
-  <input type="text" id="noteInput" placeholder="Write a note..." />
-<button onclick="addNote()">Save Note</button>
+  <div class="input-group">
+    <input type="text" id="noteInput" placeholder="Write a note..." />
+    <button id="addBtn">Save</button>
+  </div>
 
-  <div id="notesList"></div>
+  <ul id="notesList"></ul>
 
   <script>
-    function saveToStorage(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
-}
+    // --- 1. Configuration ---
+    const STORAGE_KEY = "my_simple_notes";
 
-function getFromStorage(key, defaultValue) {
-  const data = localStorage.getItem(key);
-  return data ? JSON.parse(data) : defaultValue;
-}
+    // --- 2. Helper Functions ---
+    function getNotes() {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : [];
+    }
 
-function removeFromStorage(key) {
-  localStorage.removeItem(key);
-}
-let notes = getFromStorage("my_notes", []);
-function addNote() {
-  const input = document.getElementById("noteInput");
-  const text = input.value.trim();
+    function saveNotes(notes) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+    }
 
-  if (!text) return;
+    // --- 3. Core Logic ---
+    function addNote() {
+      const input = document.getElementById("noteInput");
+      const text = input.value.trim();
 
-  notes.push({ id: Date.now(), text: text });
-  saveToStorage("my_notes", notes);
-  input.value = "";
-  renderNotes();
-}
-function renderNotes() {
-  const list = document.getElementById("notesList");
+      if (!text) return; // Don't save empty notes
 
-  if (notes.length === 0) {
-    list.innerHTML = "<p>No notes yet!</p>";
-    return;
-  }
+      const notes = getNotes();
+      notes.push({ id: Date.now(), text: text });
+      
+      saveNotes(notes);
+      input.value = ""; // Clear input
+      renderNotes();    // Update UI
+    }
 
-  list.innerHTML = notes.map(note => `
-    <p>${note.text} <button onclick="deleteNote(${note.id})">Delete</button></p>
-  `).join("");
-}
-function deleteNote(id) {
-  notes = notes.filter(n => n.id !== id);
-  saveToStorage("my_notes", notes);
-  renderNotes();
-}
-renderNotes();
+    function deleteNote(id) {
+      let notes = getNotes();
+      // Keep all notes EXCEPT the one with this ID
+      notes = notes.filter(note => note.id !== id);
+      
+      saveNotes(notes);
+      renderNotes();
+    }
+
+    // --- 4. UI Rendering ---
+    function renderNotes() {
+      const list = document.getElementById("notesList");
+      const notes = getNotes();
+
+      if (notes.length === 0) {
+        list.innerHTML = '<li class="empty-msg">No notes yet! 📝</li>';
+        return;
+      }
+
+      // Create HTML for each note
+      list.innerHTML = notes.map(note => `
+        <li>
+          <span>${note.text}</span>
+          <button class="delete-btn" data-id="${note.id}">Delete</button>
+        </li>
+      `).join("");
+    }
+
+    // --- 5. Event Listeners ---
+    
+    // Add button click
+    document.getElementById("addBtn").addEventListener("click", addNote);
+
+    // Allow pressing "Enter" key in input
+    document.getElementById("noteInput").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") addNote();
+    });
+
+    // Handle Delete clicks (Event Delegation)
+    document.getElementById("notesList").addEventListener("click", (e) => {
+      if (e.target.classList.contains("delete-btn")) {
+        const id = Number(e.target.dataset.id);
+        deleteNote(id);
+      }
+    });
+
+    // --- 6. Initial Load ---
+    renderNotes();
   </script>
 
 </body>
