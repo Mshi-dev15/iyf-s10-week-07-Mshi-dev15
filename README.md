@@ -36,10 +36,10 @@ I upgraded a To-Do List to store data using localStorage, built a form with sess
 
 | Project | Live Demo | Tech |
 |---------|-----------|------|
-| 🛒 Shopping Cart | [![Live](https://img.shields.io/badge/🛒%20Shopping%20Cart-22c55e?style=for-the-badge)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/) | `LocalStorage` |
-| 📝 Notes App | [![Live](https://img.shields.io/badge/📝%20Notes%20App-f59e0b?style=for-the-badge)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/notes-app.html) | `CRUD` |
-| 💾 Auto-Save Form | [![Live](https://img.shields.io/badge/💾%20Auto--Save-8b5cf6?style=for-the-badge)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/form.html) | `SessionStorage` |
-| ✅ To-Do List (Week 5) | [![Live](https://img.shields.io/badge/✅%20To--Do%20List-06b6d4?style=for-the-badge&logo=trello&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-05-Mshi-dev15/To-Do-List/to-do-list.html) | `Modular JS` |
+| **🛒 Shopping Cart | [![Live](https://img.shields.io/badge/🛒%20Shopping%20Cart-22c55e?style=for-the-badge)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/) | `LocalStorage` |
+| **📝 Notes App | [![Live](https://img.shields.io/badge/📝%20Notes%20App-f59e0b?style=for-the-badge)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/notes-app.html) | `CRUD` |
+| **💾 Auto-Save Form | [![Live](https://img.shields.io/badge/💾%20Auto--Save-8b5cf6?style=for-the-badge)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/form.html) | `SessionStorage` |
+| **✅ To-Do List (Week 5) | [![Live](https://img.shields.io/badge/✅%20To--Do%20List-06b6d4?style=for-the-badge&logo=trello&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-05-Mshi-dev15/To-Do-List/to-do-list.html) | `Modular JS` |
  
 ---
 
