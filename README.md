@@ -28,6 +28,11 @@ This week covered two major areas of professional JavaScript development. First,
 The main deliverables are a **Persistent To-Do List** and a **Shopping Cart** with full state management — both of which survive page refreshes using localStorage.
 
 ---
+## Live Demo
+
+[![Shopping Cart](https://img.shields.io/badge/✅%20Shopping%20Cart-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/index.html)
+
+---
 
 ## Projects Built
 
@@ -115,12 +120,6 @@ npx eslint "js/**/*.js"
 - **Checkbox deleting todos instead of toggling** — the checkbox `change` event was bubbling up to the `li` click listener, causing both to fire at once. Fixed by adding `e.stopPropagation()` to the checkbox event handler.
 - **ESLint parsing errors** — ESLint was set to `sourceType: "module"` but the files used plain `<script>` tags. Fixed by turning off the `no-undef` rule since the functions are available globally through the script tag loading order.
 - **Filter preference not persisting** — the active filter reset to "All" on every refresh. Fixed by saving the current filter to localStorage and loading it on startup.
-
----
-
-## Live Demo
-
-[![Shopping cart](https://img.shields.io/badge/✅%20To--Do%20List-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/index.html)
 
 ---
 
