@@ -32,6 +32,14 @@ The main deliverables are a **Persistent To-Do List** and a **Shopping Cart** wi
 
 [![Shopping Cart](https://img.shields.io/badge/✅%20Shopping%20Cart-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/index.html)
 
+## Live Demos
+
+| Project | Link |
+| :--- | :--- |
+| 🛒 Shopping Cart | [![Shopping Cart](https://img.shields.io/badge/✅%20Shopping%20Cart-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/) |
+| 📝 Notes App | [![Notes App](https://img.shields.io/badge/✅%20Notes%20App-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/notes-app.html) |
+| 💾 Form Auto-Save | [![Form Auto-Save](https://img.shields.io/badge/✅%20Form%20Auto--Save-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/form.html) |
+
 ---
 
 ## Projects Built
