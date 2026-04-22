@@ -32,21 +32,15 @@ I upgraded a To-Do List to store data using localStorage, built a form with sess
 
 ---
 
-## Live Demos
+## 🚀Live Demos
 
-
- **🛒 Shopping Cart**  [![Live Demo](https://img.shields.io/badge/_LIVE_DEMO-22c55e?style=for-the-badge&logo=shopify&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/) `Vanilla JS` `LocalStorage` 
- **📝 Notes App**  [![Live Demo](https://img.shields.io/badge/🔗_LIVE_DEMO-f59e0b?style=for-the-badge&logo=notion&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/notes-app.html)  `ES6` `CRUD` 
-**💾 Form Auto-Save** [![Live Demo](https://img.shields.io/badge/🔗_LIVE_DEMO-8b5cf6?style=for-the-badge&logo=googleforms&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/form.html) `SessionStorage` 
-✅ To-Do List (Week 5)  [![Live](https://img.shields.io/badge/✅%20To--Do%20List-06b6d4?style=for-the-badge&logo=trello&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-05-Mshi-dev15/To-Do-List/to-do-list.html) | `Modular JS` |
-
-
-| Project | Link |
-| :--- | :--- |
-| 🛒 Shopping Cart | [![Shopping Cart](https://img.shields.io/badge/✅%20Shopping%20Cart-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/) |
-| 📝 Notes App | [![Notes App](https://img.shields.io/badge/✅%20Notes%20App-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/notes-app.html) |
-| 💾 Form Auto-Save | [![Form Auto-Save](https://img.shields.io/badge/✅%20Form%20Auto--Save-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/form.html) |
-
+| Project | Live Demo | Tech |
+|---------|-----------|------|
+| 🛒 Shopping Cart | [![Live](https://img.shields.io/badge/🛒%20Shopping%20Cart-22c55e?style=for-the-badge)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/) | `LocalStorage` |
+| 📝 Notes App | [![Live](https://img.shields.io/badge/📝%20Notes%20App-f59e0b?style=for-the-badge)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/notes-app.html) | `CRUD` |
+| 💾 Auto-Save Form | [![Live](https://img.shields.io/badge/💾%20Auto--Save-8b5cf6?style=for-the-badge)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/form.html) | `SessionStorage` |
+| ✅ To-Do List (Week 5) | [![Live](https://img.shields.io/badge/✅%20To--Do%20List-06b6d4?style=for-the-badge&logo=trello&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-05-Mshi-dev15/To-Do-List/to-do-list.html) | `Modular JS` |
+ 
 ---
 
 ## Technologies Used
