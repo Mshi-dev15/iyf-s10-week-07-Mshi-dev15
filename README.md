@@ -2,9 +2,11 @@
 
 <div align="center">
 
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![LocalStorage](https://img.shields.io/badge/LocalStorage-FF6B6B?style=for-the-badge&logo=googlechrome&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
 
 </div>
 
@@ -23,38 +25,27 @@
 
 ## Project Description
 
-This week covered two major areas of professional JavaScript development. First, data persistence using `localStorage` and `sessionStorage` — making apps that remember data even after the browser is closed. Second, JavaScript best practices including clean code principles, code organization into modules, debugging skills, and setting up ESLint and Prettier for automated code quality checks.
+This project focuses on improving JavaScript skills by implementing best practices, state management, and data persistence.  
 
-The main deliverables are a **Persistent To-Do List** and a **Shopping Cart** with full state management — both of which survive page refreshes using localStorage.
+I upgraded a To-Do List to store data using localStorage, built a form with sessionStorage, and structured code in a more professional way. I also explored debugging, clean code, and linting tools like ESLint and Prettier.
+
 
 ---
-## Live Demo
-
-[![Shopping Cart](https://img.shields.io/badge/✅%20Shopping%20Cart-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/index.html)
 
 ## Live Demos
+
+
+ **🛒 Shopping Cart**  [![Live Demo](https://img.shields.io/badge/_LIVE_DEMO-22c55e?style=for-the-badge&logo=shopify&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/) `Vanilla JS` `LocalStorage` 
+ **📝 Notes App**  [![Live Demo](https://img.shields.io/badge/🔗_LIVE_DEMO-f59e0b?style=for-the-badge&logo=notion&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/notes-app.html)  `ES6` `CRUD` 
+**💾 Form Auto-Save** [![Live Demo](https://img.shields.io/badge/🔗_LIVE_DEMO-8b5cf6?style=for-the-badge&logo=googleforms&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/form.html) `SessionStorage` 
+✅ To-Do List (Week 5)  [![Live](https://img.shields.io/badge/✅%20To--Do%20List-06b6d4?style=for-the-badge&logo=trello&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-05-Mshi-dev15/To-Do-List/to-do-list.html) | `Modular JS` |
+
 
 | Project | Link |
 | :--- | :--- |
 | 🛒 Shopping Cart | [![Shopping Cart](https://img.shields.io/badge/✅%20Shopping%20Cart-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/shopping-cart/) |
 | 📝 Notes App | [![Notes App](https://img.shields.io/badge/✅%20Notes%20App-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/notes-app.html) |
 | 💾 Form Auto-Save | [![Form Auto-Save](https://img.shields.io/badge/✅%20Form%20Auto--Save-274D6A?style=for-the-badge&logoColor=white)](https://Mshi-dev15.github.io/iyf-s10-week-07-Mshi-dev15/form.html) |
-
----
-
-## Projects Built
-
-### 📝 Notes App — Task 13.1
-A simple notes app that saves and retrieves notes from localStorage using reusable helper functions.
-
-### ✅ Persistent To-Do List — Task 13.2
-An upgraded version of the Week 5 To-Do List with full localStorage persistence. Every action — adding, completing, deleting, and filtering — is saved automatically.
-
-### 📋 Auto-Save Form — Task 13.3
-A contact form that auto-saves all fields to sessionStorage as you type. Data survives accidental navigation but clears when the tab is closed.
-
-### 🛍️ Shopping Cart — Task 13.4
-A full shopping cart built with centralized state management. Products can be added, quantities adjusted, and items removed. The cart persists across page refreshes.
 
 ---
 
@@ -66,31 +57,6 @@ A full shopping cart built with centralized state management. Products can be ad
 - **ESLint** — automated code quality checking
 - **Prettier** — automated code formatting
 - **Node.js / npm** — package management for ESLint and Prettier
-
----
-
-## Features
-
-### localStorage & sessionStorage
-- ✅ Todos persist across page refreshes
-- ✅ Shopping cart survives browser close and reopen
-- ✅ Form data auto-saves every 5 seconds
-- ✅ Search history saves last 5 searches
-- ✅ Theme preference (light/dark) is remembered
-
-### Code Quality
-- ✅ Code split into separate modules (`storage.js`, `state.js`, `ui.js`, `app.js`)
-- ✅ Meaningful variable and function names throughout
-- ✅ Single responsibility principle applied to all functions
-- ✅ No magic numbers — all constants named and explained
-- ✅ ESLint configured and passing with zero errors
-
-### Daily Challenges
-- ✅ Day 1 — Light/dark theme toggle with localStorage
-- ✅ Day 2 — Recent searches dropdown with history
-- ✅ Day 3 — Form auto-save with sessionStorage
-- ✅ Day 4 — Notes app refactored with clean code principles
-- ✅ Day 5 — Weather Dashboard code review with improvement list
 
 ---
 

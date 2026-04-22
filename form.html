@@ -1,69 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task 13.3 - Auto Save Form</title>
+  <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #333;
+    }
+
+    /* Form Container */
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      color: #2d3748;
+      font-size: 1.5rem;
+    }
+
+    .subtitle {
+      color: #718096;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #4a5568;
+      font-size: 0.9rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: #f8fafc;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+      background: white;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    /* Submit Button */
+    button[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(0);
+    }
+
+    /* Status Message */
+    #status {
+      margin-top: 20px;
+      padding: 12px;
+      background: #f0fff4;
+      border: 1px solid #9ae6b4;
+      border-radius: 6px;
+      color: #276749;
+      font-weight: 500;
+      text-align: center;
+      display: none; /* Hidden by default */
+    }
+
+    #status.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 25px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="form-container">
+    <h2>📋 Contact Form</h2>
+    <p class="subtitle">This form auto-saves as you type using <code>sessionStorage</code>!</p>
 
-  <h2>📋 Contact Form</h2>
-  <p>This form auto-saves as you type using sessionStorage!</p>
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+      </div>
 
-  <form id="contact-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required />
+      </div>
 
-    <div>
-      <label>Name</label><br />
-      <input type="text" name="name" placeholder="Your name" />
-    </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your message" required></textarea>
+      </div>
 
-    <div>
-      <label>Email</label><br />
-      <input type="text" name="email" placeholder="Your email" />
-    </div>
+      <button type="submit">Submit</button>
+    </form>
 
-    <div>
-      <label>Message</label><br />
-      <textarea name="message" placeholder="Your message"></textarea>
-    </div>
-
-    <button type="submit">Submit</button>
-
-  </form>
-
-  <p id="status"></p>
+    <p id="status"></p>
+  </div>
 
   <script>
-const form = document.getElementById("contact-form");
+    const form = document.getElementById("contact-form");
+    const inputs = form.querySelectorAll("input, textarea");
+    const status = document.getElementById("status");
 
-// Get all inputs and textareas inside the form
-const inputs = form.querySelectorAll("input, textarea");
+    // Restore saved data
+    inputs.forEach(input => {
+      const saved = sessionStorage.getItem("form_" + input.name);
+      if (saved) input.value = saved;
+      
+      input.addEventListener("input", () => {
+        sessionStorage.setItem("form_" + input.name, input.value);
+      });
+    });
 
-inputs.forEach(input => {
-  // When page loads, check if we have saved data for this field
-  const saved = sessionStorage.getItem("form_" + input.name);
-  if (saved) {
-    input.value = saved; // restore it!
-  }
+    // Handle submit
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      inputs.forEach(input => {
+        sessionStorage.removeItem("form_" + input.name);
+        input.value = "";
+      });
 
-  // Every time the user types, save immediately
-  input.addEventListener("input", () => {
-    sessionStorage.setItem("form_" + input.name, input.value);
-  });
-});
-
-// When form is submitted, clear all saved data
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  // Clear sessionStorage for each field
-  inputs.forEach(input => {
-    sessionStorage.removeItem("form_" + input.name);
-    input.value = ""; // also clear the input visually
-  });
-
-  document.getElementById("status").textContent = "✅ Form submitted and saved data cleared!";
-});
-
+      // Show status with animation
+      status.textContent = "✅ Form submitted and saved data cleared!";
+      status.classList.add("show");
+      
+      // Hide status after 3 seconds
+      setTimeout(() => {
+        status.classList.remove("show");
+      }, 3000);
+    });
   </script>
 </body>
 </html>
