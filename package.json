@@ -8,7 +8,7 @@
     "lint": "eslint *.js",
     "lint:fix": "eslint *.js --fix",
     "format": "prettier --write *.js"
-  },
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mshi-dev15/iyf-s10-week-07-Mshi-dev15.git"
@@ -24,7 +24,6 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.2.1",
-    "globals": "^17.5.0",
-    "prettier": "^3.8.3"
+    "globals": "^17.5.0"
   }
 }

@@ -8,6 +8,7 @@
 [![LocalStorage](https://img.shields.io/badge/LocalStorage-FF6B6B?style=for-the-badge&logo=googlechrome&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
 
+
 </div>
 
 ---
@@ -51,6 +52,22 @@ I upgraded a To-Do List to store data using localStorage, built a form with sess
 - **ESLint** — automated code quality checking
 - **Prettier** — automated code formatting
 - **Node.js / npm** — package management for ESLint and Prettier
+
+---
+
+### 🎯 Features
+
+- 🛒 **Shopping Cart**: Add/remove items, quantity controls, persistent cart
+- 📝 **Notes App**: Create/delete notes, auto-save, clean UI
+- 💾 **Form Auto-Save**: Session persistence, auto-recovery, smooth UX
+- ✅ **To-Do List**: Modular architecture, state management, filter options
+
+### ♻️ Code Quality
+✅ Modular files (`storage.js`, `state.js`, `actions.js`, `ui.js`, `app.js`)  
+✅ Meaningful names & single-responsibility functions  
+✅ No magic values — all constants named  
+✅ ESLint configured & passing with zero errors  
+✅ Immutable state updates & strict equality (`===`)
 
 ---
 
